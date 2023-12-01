@@ -1,6 +1,6 @@
 package utils
 
-abstract class BaseDay<I, S>(
+abstract class BaseDay<S>(
     day: Int,
     name: String,
 ) {
@@ -8,14 +8,15 @@ abstract class BaseDay<I, S>(
         println(
             """"
         |=========================
-        |    $name Day $day\n
+        |    $name Day $day
         |=========================
         """.trimMargin()
         )
     }
 
-    abstract fun solve(input: I): S
+    abstract fun solve1(input: List<String>): S
+    abstract fun solve2(input: List<String>): S
 }
 
-abstract class DayChris<I, S>(day: Int) : BaseDay<I, S>(day, "Chris")
-abstract class DayMartin<I, S>(day: Int) : BaseDay<I, S>(day, "Martin")
+abstract class DayChris<S>(day: Int) : BaseDay<S>(day, "Chris")
+abstract class DayMartin<S>(day: Int) : BaseDay<S>(day, "Martin")
