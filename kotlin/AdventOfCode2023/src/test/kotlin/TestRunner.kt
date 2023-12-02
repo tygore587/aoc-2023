@@ -13,13 +13,13 @@ fun execute(
     val solution1 = day.solve1(
         inputReader.read(input1.value)
     )
-    println("Solution - 1: $solution1 in ${System.nanoTime() - start}")
-    Assertions.assertEquals(solution1, input1.solution)
+    println("Solution - 1: $solution1 in ${System.nanoTime() - start}ns")
+    Assertions.assertEquals(input1.solution, solution1)
 
     start = System.nanoTime()
     val solution2 = day.solve2(
         inputReader.read(input2.value)
     )
-    println("Solution - 2: $solution2 in ${System.nanoTime() - start}")
-    Assertions.assertEquals(solution2, input2.solution)
+    println("Solution - 2: $solution2 in ${System.nanoTime() - start}ns")
+    Assertions.assertEquals(input2.solution, solution2)
 }

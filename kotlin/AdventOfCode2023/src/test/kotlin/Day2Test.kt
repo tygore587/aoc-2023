@@ -1,6 +1,6 @@
-import day1.martin.Day1Martin
 import day2.Day2Input
 import day2.chris.Day2Chris
+import day2.martin.Day2Martin
 import org.junit.jupiter.api.Test
 
 class Day2Test {
@@ -17,7 +17,7 @@ class Day2Test {
     @Test
     fun day2Martin() {
         execute(
-            Day1Martin(),
+            Day2Martin(),
             Day2Input.martin1,
             Day2Input.martin2,
         )
