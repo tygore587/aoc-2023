@@ -9,7 +9,7 @@ class Day1Input {
         val chris1 = Input(d1c1, 54561)
         val chris2 = Input(d1c2, 54076)
 
-//        val martin1 = Input(d1m1, 54561)
-//        val martin2 = Input(d1m2, 54076)
+        val martin1 = Input("", 0)
+        val martin2 = Input("", 0)
     }
 }
