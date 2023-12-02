@@ -1,30 +1,22 @@
-package day1
+package day1.chris
 
 import utils.DayChris
 
 class Day1Chris : DayChris<Int>(1) {
 
-    override fun solve1(input: List<String>): Int {
-        var sum = 0
-        for (line in input) {
+    override fun solve1(input: List<String>) =
+        input.sumOf { line ->
             val first = line.find { it.isDigit() }
             val last = line.findLast { it.isDigit() }
-            val lineValue = "$first$last".toIntOrNull() ?: 0
-            sum += lineValue
+            "$first$last".toIntOrNull() ?: 0
         }
-        return sum
-    }
 
-    override fun solve2(input: List<String>): Int {
-        var sum = 0
-        for (line in input) {
+    override fun solve2(input: List<String>) =
+        input.sumOf { line ->
             val first = findFirstNumber(line)
             val last = findLastNumber(line)
-            val lineValue = "$first$last".toIntOrNull() ?: 0
-            sum += lineValue
+            "$first$last".toIntOrNull() ?: 0
         }
-        return sum
-    }
 
     private fun findFirstNumber(line: String) = findIn(line, numbers)
     private fun findLastNumber(line: String) = findIn(line.reversed(), numbersReversed)
@@ -64,19 +56,6 @@ class Day1Chris : DayChris<Int>(1) {
         "seven" to 7,
         "eight" to 8,
         "nine" to 9,
-    )
-
-    private val numbersReplace = mapOf(
-        "zero" to "z0o",
-        "one" to "o1e",
-        "two" to "t2o",
-        "three" to "t3e",
-        "four" to "f4r",
-        "five" to "f5e",
-        "six" to "s6x",
-        "seven" to "s7n",
-        "eight" to "e8t",
-        "nine" to "n9e",
     )
 
     private val numbersReversed = mapOf(

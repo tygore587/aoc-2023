@@ -7,10 +7,10 @@ abstract class BaseDay<S>(
     init {
         println(
             """"
-        |=========================
-        |    $name Day $day
-        |=========================
-        """.trimMargin()
+            |=========================
+            |      $name Day $day
+            |=========================
+            """.trimMargin()
         )
     }
 

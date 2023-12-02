@@ -1,7 +1,7 @@
-import day1.Day1Chris
-import day1.Day1ChrisOptimized
 import day1.Day1Input
 import day1.Day1Martin
+import day1.chris.Day1Chris
+import day1.chris.Day1ChrisOptimized
 import org.junit.jupiter.api.Test
 
 class SolutionTest {
