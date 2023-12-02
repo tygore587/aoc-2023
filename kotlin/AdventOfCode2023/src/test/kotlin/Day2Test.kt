@@ -1,4 +1,3 @@
-import day1.Day1Input
 import day1.martin.Day1Martin
 import day2.Day2Input
 import day2.chris.Day2Chris
@@ -19,8 +18,8 @@ class Day2Test {
     fun day2Martin() {
         execute(
             Day1Martin(),
-            Day1Input.chris1,
-            Day1Input.chris2,
+            Day2Input.martin1,
+            Day2Input.martin2,
         )
     }
 }
