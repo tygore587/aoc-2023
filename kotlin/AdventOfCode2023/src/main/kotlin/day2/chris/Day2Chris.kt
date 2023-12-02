@@ -11,7 +11,14 @@ class Day2Chris : DayChris<Int>(2) {
             if (game.isValid()) game.number else 0
         }
 
-    override fun solve2(input: List<String>): Int {
-        return 0
-    }
+    override fun solve2(input: List<String>) =
+        input.sumOf { line ->
+            val cubeCounts = parser.parse(line).pulls
+                .flatMap { it.cubes }
+                .groupBy { it.color }
+
+            (cubeCounts[GameParser.Color.red]?.maxOf { it.number } ?: 0) *
+                    (cubeCounts[GameParser.Color.blue]?.maxOf { it.number } ?: 0) *
+                    (cubeCounts[GameParser.Color.green]?.maxOf { it.number } ?: 0)
+        }
 }

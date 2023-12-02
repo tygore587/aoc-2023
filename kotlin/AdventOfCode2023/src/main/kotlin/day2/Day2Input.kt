@@ -1,6 +1,7 @@
 package day2
 
 import day2.chris.d2c1
+import day2.chris.d2c2
 import utils.Input
 
 class Day2Input {
@@ -28,7 +29,7 @@ class Day2Input {
         )
 
         val chris1 = Input(d2c1, 2771)
-        val chris2 = part2
+        val chris2 = Input(d2c2, 70924)
 
         val martin1 = part1
         val martin2 = part2

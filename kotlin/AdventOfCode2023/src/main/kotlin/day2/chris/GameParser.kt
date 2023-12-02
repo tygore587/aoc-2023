@@ -1,15 +1,15 @@
 package day2.chris
 
 class GameParser {
-    data class Game(val number: Int, val rounds: List<Round>) {
-        fun isValid() = rounds.all { it.isValid() }
+    data class Game(val number: Int, val pulls: List<Pull>) {
+        fun isValid() = pulls.all { it.isValid() }
     }
 
-    data class Round(val pull: List<Pull>) {
-        fun isValid() = pull.all { it.isValid() }
+    data class Pull(val cubes: List<Cubes>) {
+        fun isValid() = cubes.all { it.isValid() }
     }
 
-    data class Pull(val number: Int, val color: Color) {
+    data class Cubes(val number: Int, val color: Color) {
         fun isValid() = number <= color.max
     }
 
@@ -31,7 +31,7 @@ class GameParser {
             .toInt()
 
     private fun getRound(round: String) =
-        Round(
+        Pull(
             round.trim()
                 .split(",")
                 .map { getPull(it.trim()) }
@@ -41,7 +41,7 @@ class GameParser {
         pull.trim()
             .split(" ", limit = 2)
             .let {
-                Pull(
+                Cubes(
                     it[0].toInt(),
                     Color.valueOf(it[1])
                 )
