@@ -3,23 +3,31 @@ package day1.chris
 import utils.DayChris
 
 class Day1Chris : DayChris<Int>(1) {
-
     override fun solve1(input: List<String>) =
-        input.sumOf { line ->
-            val first = line.find { it.isDigit() }
-            val last = line.findLast { it.isDigit() }
-            "$first$last".toIntOrNull() ?: 0
-        }
+        input.sumLines(::findFirstDigit, ::findLastDigit)
 
     override fun solve2(input: List<String>) =
-        input.sumOf { line ->
-            val first = findFirstNumber(line)
-            val last = findLastNumber(line)
-            "$first$last".toIntOrNull() ?: 0
-        }
+        input.sumLines(::findFirstNumber, ::findLastNumber)
 
-    private fun findFirstNumber(line: String) = findIn(line, numbers)
-    private fun findLastNumber(line: String) = findIn(line.reversed(), numbersReversed)
+    private fun List<String>.sumLines(
+        first: (String) -> Int,
+        last: (String) -> Int
+    ) = this.sumOf { toLineValue(first(it), last(it)) }
+
+    private fun toLineValue(first: Int, last: Int) =
+        "$first$last".toIntOrNull() ?: 0
+
+    private fun findFirstDigit(line: String) =
+        line.find { it.isDigit() }?.digitToInt() ?: 0
+
+    private fun findLastDigit(line: String) =
+        line.findLast { it.isDigit() }?.digitToInt() ?: 0
+
+    private fun findFirstNumber(line: String) =
+        findIn(line, numbers)
+
+    private fun findLastNumber(line: String) =
+        findIn(line.reversed(), numbersReversed)
 
     private fun findIn(line: String, numbers: Map<String, Int>): Int {
         val firstIndex = line.indexOfFirst { it.isDigit() }

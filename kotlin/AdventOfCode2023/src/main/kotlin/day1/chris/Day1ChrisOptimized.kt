@@ -7,8 +7,7 @@ class Day1ChrisOptimized : DayChris<Int>(1) {
         input.sumOf { lineValue(it) }
 
     override fun solve2(input: List<String>) =
-        input.map { replaceValues(it) }
-            .sumOf { lineValue(it) }
+        input.sumOf { lineValue(replaceValues(it)) }
 
     private fun replaceValues(line: String): String {
         var resultLine = line
